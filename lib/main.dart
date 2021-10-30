@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'styles/svgIcon.dart';
@@ -190,6 +191,7 @@ class _LoginPageState extends State<LoginPage> {
             });
           },
           child: AnimatedContainer(
+            padding: EdgeInsets.all(32),
             width: _loginWidth,
             curve: Curves.fastLinearToSlowEaseIn,
             duration: Duration(
@@ -203,6 +205,14 @@ class _LoginPageState extends State<LoginPage> {
                 topRight: Radius.circular(25),
               )
             ),
+            child: Column(
+              children: [
+                PrimaryButton(
+                    btnText: "Login",
+                ),
+                OutlineButton(btnText: "Create New Account")
+              ],
+            ),
 
           ),
         ),
@@ -213,6 +223,7 @@ class _LoginPageState extends State<LoginPage> {
             });
           },
           child: AnimatedContainer(
+            padding: EdgeInsets.all(32),
             curve: Curves.fastLinearToSlowEaseIn,
             duration: Duration(
               milliseconds: 1000,
@@ -225,10 +236,82 @@ class _LoginPageState extends State<LoginPage> {
                   topRight: Radius.circular(25),
                 )
             ),
-
+            child: Column(
+              children: [
+                PrimaryButton(
+                  btnText: "Create Account",
+                ),
+              ],
+            ),
           ),
         ),
       ],
     );
   }
 }
+
+class PrimaryButton extends StatefulWidget {
+  final String btnText;
+
+  const PrimaryButton({Key? key, required this.btnText}) : super(key: key);
+
+  @override
+  _PrimaryButtonState createState() => _PrimaryButtonState();
+}
+
+class _PrimaryButtonState extends State<PrimaryButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Color(0xFF006D95),
+        borderRadius: BorderRadius.circular(50)
+      ),
+      padding: EdgeInsets.all(20),
+      child: Center(
+        child: Text(
+        widget.btnText,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 16
+        ),)
+      ),
+    );
+  }
+}
+
+
+class OutlineButton extends StatefulWidget {
+  final String btnText;
+  const OutlineButton({Key? key, required this.btnText}) : super(key: key);
+
+  @override
+  _OutlineButtonState createState() => _OutlineButtonState();
+}
+
+class _OutlineButtonState extends State<OutlineButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Color(0xFF006D95),
+          width: 2,
+        ),
+          borderRadius: BorderRadius.circular(50)
+      ),
+      padding: EdgeInsets.all(20),
+      child: Center(
+          child: Text(
+            widget.btnText,
+            style: TextStyle(
+                color: Color(0xFF006D95),
+                fontSize: 16
+            ),)
+      ),
+    );
+  }
+}
+
+
