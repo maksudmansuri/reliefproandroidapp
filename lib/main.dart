@@ -45,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
   double _registerYOffset = 0;
 
   double _loginWidth = 0;
+  double _loginHeight = 0;
 
   double windowWidth = 0;
   double windowHeight = 0;
@@ -59,6 +60,7 @@ class _LoginPageState extends State<LoginPage> {
     windowWidth = MediaQuery.of(context).size.width;
     windowHeight = MediaQuery.of(context).size.height;
 
+    _loginHeight = windowHeight - 270;
     switch(_pageState){
       case 0:
         _backgorundColor = Colors.white;
@@ -193,6 +195,7 @@ class _LoginPageState extends State<LoginPage> {
           child: AnimatedContainer(
             padding: EdgeInsets.all(32),
             width: _loginWidth,
+            height: _loginHeight,
             curve: Curves.fastLinearToSlowEaseIn,
             duration: Duration(
               milliseconds: 1000,
@@ -206,6 +209,7 @@ class _LoginPageState extends State<LoginPage> {
               )
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: [
