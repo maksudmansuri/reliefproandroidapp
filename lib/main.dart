@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
       case 1:
         _backgorundColor = Color(0xFF006D95);
         _headingColor = Colors.white;
-        _loginYOffset = 270;
+        _loginYOffset = 230;
         _registerYOffset = windowHeight;
         _loginXOffset = 0;
         _loginWidth = windowWidth;
@@ -83,12 +83,12 @@ class _LoginPageState extends State<LoginPage> {
       case 2:
         _backgorundColor = Color(0xFF006D95);
         _headingColor = Colors.white;
-        _loginYOffset = 250;
-        _registerYOffset = 270;
+        _loginYOffset = 180;
+        _registerYOffset = 200;
         _loginXOffset = 20;
         _loginWidth = windowWidth - 40;
         _loginOpacity = 0.7;
-        _headingTop = 80;
+        _headingTop = 50;
         break;
     }
 
@@ -209,6 +209,9 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 PrimaryButton(
                     btnText: "Login",
+                ),
+                SizedBox(
+                  height: 20,
                 ),
                 OutlineButton(btnText: "Create New Account")
               ],
