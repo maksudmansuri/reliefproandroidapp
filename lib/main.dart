@@ -207,13 +207,30 @@ class _LoginPageState extends State<LoginPage> {
             ),
             child: Column(
               children: [
-                PrimaryButton(
-                    btnText: "Login",
+                Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: Text(
+                        "Login To Continue",
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
+                      ),
+                    ),
+                    InputWithIcon(),
+                    SizedBox(height: 20),
+                  ],
                 ),
-                SizedBox(
-                  height: 20,
+                Column(
+                  children: [
+                    PrimaryButton(
+                        btnText: "Login",
+                    ),
+                    //SizedBox( height: 20,),
+                    //OutlineButton(btnText: "Create New Account")
+                  ],
                 ),
-                OutlineButton(btnText: "Create New Account")
               ],
             ),
 
@@ -241,8 +258,29 @@ class _LoginPageState extends State<LoginPage> {
             ),
             child: Column(
               children: [
-                PrimaryButton(
-                  btnText: "Create Account",
+                Column(
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 20),
+                          child: Text(
+                            "Create a New Account",
+                            style: TextStyle(
+                              fontSize: 20
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    PrimaryButton(
+                      btnText: "Create Account",
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    OutlineButton(btnText: "Back To Login")
+                  ],
                 ),
               ],
             ),
@@ -252,6 +290,52 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
+class InputWithIcon extends StatefulWidget {
+  const InputWithIcon({Key? key}) : super(key: key);
+
+  @override
+  _InputWithIconState createState() => _InputWithIconState();
+}
+
+class _InputWithIconState extends State<InputWithIcon> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Color(0xFF006D95),
+          width: 2,
+        ),
+        borderRadius: BorderRadius.circular(50)
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 60 ,
+            child: Icon(
+              Icons.phone,
+              size: 20,
+              color: Color(0xFFBB989B9),
+            ),
+          ),
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 20),
+                border: InputBorder.none,
+                hintText: "Enter Mobile number"
+              ),
+            ),
+
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
 class PrimaryButton extends StatefulWidget {
   final String btnText;
