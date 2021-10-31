@@ -33,7 +33,7 @@ class _SplashState extends State<Splash> {
       backgroundColor: Color(0xFF006D95),
       body: Container(
         child: Center(
-          child: Image.asset(LogoR,width: 200,),
+          child: Image.asset(LogoR,width: 100,),
         ),
 
       ),
